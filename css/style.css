@@ -65,7 +65,7 @@ a:hover {
   background-color: white;
   padding: 0 3px;
   border-radius: 10px;
-  color: blue;
+  color: blue;cd 
 }
 canvas{display: block; vertical-align: bottom; }
 #particles-js{ margin: 0 auto ;position:absolute; width: 100%; height: 100%;  background: linear-gradient(to right, #5433ff, #20bdff, #a5fecb); background-size: 400% 400%; 	animation: Gradient 15s ease infinite;}
