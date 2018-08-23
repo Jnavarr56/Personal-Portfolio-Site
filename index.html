@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>personal site landing demo</title>
+  <title>Personal Site</title>
    <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -11,12 +11,19 @@
   <div id="particles-js">
     <div id = "headingContainer">
       <h1>Jorge Navarro</h1>
-      <h2>Recent Economics grad and budding developer seeking internship to entry level opportunities.</h2>
+      <h2>Recent Economics grad and budding developer seeking internship <br> to entry level opportunities.</h2>
       <h2>I have experience with AJAX, Axios, and REST API's.</h2>
       <h2>I love data but I have a Front End eye. Hablo español.</h2>
-      <h2><a href = "https://github.com/Jnavarr56">Github </a>| <a href= "https://codepen.io/collection/DYVKrN/">Codepen </a>| <a href = "https://www.linkedin.com/in/jnavarr5/">LinkedIn </a>| jnavarr56@gmail.com</h2>
+      <h2>Click below to view my work:</h2>
+      <h2><a href= "">Projects </a> | <a href = "https://github.com/Jnavarr56">Github </a>| <a href= "https://codepen.io/collection/DYVKrN/">Codepen </a>| <a href = "https://www.linkedin.com/in/jnavarr5/">LinkedIn </a>| jnavarr56@gmail.com</h2>
       <div id = "spinSquare"></div>
     </div>
+    <div id = "reposContainer">
+        <h2 id = "reposHeader" class = "changeText">3 Most Recently Updated Repos <br> (from Github API):</h2>
+        <h3 id = "mostRecentRepo" class = "changeText">repo loading...</h3>
+        <h3 id = "mostRecentRepoUpdated" class = "changeText">repo loading...<h3>
+        <h3><a id = "mostRecentRepoLink" class = "changeText">repo loading...</a><h3>
+    </div> 
     <div id = "toolsContainer">
       <img src = "jslogo.png">
       <img src = "htmllogo.png">
@@ -28,6 +35,7 @@
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.17.0/axios.js"></script>
   <script  src="js/index.js"></script>
   </body>
 </html>

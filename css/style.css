@@ -1,12 +1,21 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins');
 body{
+  opacity: 0;
+
   position: relative;
   margin: 0; 
   font: normal 75% Arial, Helvetica, sans-serif; 
   height: 100vh;
   width: 100vw;
 
-  min-height: 800px;
+  min-height: 900px;
+  min-width: 1400px;
+
+  animation: FadeIn 2s ease .25s 1 forwards;
+}
+@keyframes FadeIn { 
+  0% {opacity: 0;}
+  100% {opacity: 1;}
 }
 #headingContainer {
   position: absolute;
@@ -14,11 +23,10 @@ body{
   height: 400px;
   width: 800px;
   top: 20%;
-  left: 15%; 
-
+  left: 15%;
   
 }
-h1, h2 {
+h1, h2,h3 {
   font-family: "Poppins";
   color: white;
   animation: KeepText 12.5s linear infinite;
@@ -48,6 +56,7 @@ h1 {
   bottom: 20%;
   left: 0;
   right: 0;
+ 
 
   display: flex;
   justify-content: space-evenly;
@@ -62,10 +71,51 @@ a {
   text-decoration: none;
 }
 a:hover {
+  padding-left: 5px;
+  margin: 0px 5px;
   background-color: white;
-  padding: 0 3px;
   border-radius: 10px;
-  color: blue;cd 
+  color: blue;
+}
+#reposContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  position: absolute;
+  top: 28%;
+  right: 15%;
+
+  background-color:rgba(255,255,255,.3);
+
+  margin: 0 auto;
+
+  
+  border-color: white;
+  border-radius: 15px;
+  
+  height: 280px;
+  width: 350px;
+
+  
+}
+#reposHeader {
+  text-align:  center;
+}
+.changeText {
+  color: white;
+  /*animation: repoText 15s linear 0s infinite;*/
+}
+#mostRecentRepoLink:hover {
+  background-color: none;
+}
+@keyframes repoText {
+	0% {color:  #5433ff}
+	25% {color:  #20bdff}
+  50% {color:  #a5fecb}
+  75% {color:  #20bdff}
+  100% {color:  #5433ff}
 }
 canvas{display: block; vertical-align: bottom; }
 #particles-js{ margin: 0 auto ;position:absolute; width: 100%; height: 100%;  background: linear-gradient(to right, #5433ff, #20bdff, #a5fecb); background-size: 400% 400%; 	animation: Gradient 15s ease infinite;}
