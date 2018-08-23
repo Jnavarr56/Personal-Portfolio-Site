@@ -20,7 +20,7 @@ let returnTime = (timeString) => {
 
     return `${weekDays[day]} ${months[month]} ${dayMo} ${hours}:${mins} ${time}`;
 } 
-let accessToken = "f80ad17caefc4baef47707116759d0f07dc55643"
+let accessToken = "254c958d3a7fdd87ce0732495b6d889e14ac9ec2";
 axios.get(`https://api.github.com/users/jnavarr56/repos?access_token=${accessToken}`)
   .then((response) => {
     console.log(response);
