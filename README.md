@@ -17,9 +17,37 @@ Hosted Here: jorgenavarro.me
 This project is a personal portfolio site I am creating to show off some Front-End skills
 as well as provide a quick summary of past work and a directory of relevant personal links for employeers.
 
-I use Particle.js for the background. Configuration below:
+I use Particle.js for the background. I've listed the particle configuration at the bottom of this readme.
+
+### Code Highlights
+The repos endpoint for a user in the Github API returns an array in the .data property which contains
+objects with properties that store information about the repos. 
+
+I sort this array by the ".updated_at" property (descending) using a compare function and then loop through the the first three
+using setInterval.
 
 ```javascript
+axios.get(`https://api.github.com/users/jnavarr56/repos`)
+  .then((response) => {
+    let repos = response.data; //<---SORT ARRAY OF REPO OBJECTS BY PROPERTY .updated_at
+    response.data.sort((a,b)=>{return (new Date(b.updated_at)) - (new Date(a.updated_at))});
+    let reposIndex = 0;
+    setInterval(()=>{
+        //LOOP THROUGH EVERY 3 SECONDS
+        document.getElementById("mostRecentRepo").innerText = repos[reposIndex].name;
+        document.getElementById("mostRecentRepoLink").innerText = "View This Repo";
+        document.getElementById("mostRecentRepoLink").href = repos[reposIndex].html_url;
+        document.getElementById("mostRecentRepoUpdated").innerText = returnTime(repos[reposIndex].updated_at);
+        reposIndex++;
+        if (reposIndex === 3) {reposIndex = 0}; //<-----LOOP THROUGH ONLY FIRST 3
+    }, 3000);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+```
+```javascript
+//PARTICLE CONFIGURATION
 particlesJS("particles-js", {
         "particles":{
             "number":{"value":10,"density":{"enable":true,"value_area":800}},

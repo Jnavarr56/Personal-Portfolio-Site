@@ -17,30 +17,22 @@ let returnTime = (timeString) => {
         hours -= 12;
         time = "pm";
     }
-
     return `${weekDays[day]} ${months[month]} ${dayMo} ${hours}:${mins} ${time}`;
-} 
-let accessToken = "?access_token=4a1b35a583d21a6a55ef3b1bbdd36489a610b868";
+}
 axios.get(`https://api.github.com/users/jnavarr56/repos`)
   .then((response) => {
-    console.log(response);
-    let repos = response.data;
-    repos.sort((a,b)=>{
-        let dateA = new Date(a.updated_at);
-        let dateB = new Date(b.updated_at);
-        return  dateB - dateA;
-    });
-    console.log(repos);
+    let repos = response.data; //<---SORT ARRAY OF REPO OBJECTS BY PROPERTY .updated_at
+    response.data.sort((a,b)=>{return (new Date(b.updated_at)) - (new Date(a.updated_at))});
     let reposIndex = 0;
     setInterval(()=>{
+        //LOOP THROUGH EVERY 3 SECONDS
         document.getElementById("mostRecentRepo").innerText = repos[reposIndex].name;
         document.getElementById("mostRecentRepoLink").innerText = "View This Repo";
         document.getElementById("mostRecentRepoLink").href = repos[reposIndex].html_url;
         document.getElementById("mostRecentRepoUpdated").innerText = returnTime(repos[reposIndex].updated_at);
         reposIndex++;
         if (reposIndex === 3) {reposIndex = 0};
-    }, 2000);
-    
+    }, 3000);
   })
   .catch((error) => {
     console.log(error);
