@@ -21,8 +21,10 @@ let returnTime = (timeString) => {
 }
 axios.get(`https://api.github.com/users/jnavarr56/repos`)
   .then((response) => {
-    let repos = response.data; //<---SORT ARRAY OF REPO OBJECTS BY PROPERTY .updated_at
-    response.data.sort((a,b)=>{return (new Date(b.updated_at)) - (new Date(a.updated_at))});
+    console.log(response);
+     //<---SORT ARRAY OF REPO OBJECTS BY PROPERTY .updated_at
+    let repos = response.data.sort((a,b)=>{return (new Date(b.updated_at)) - (new Date(a.updated_at))})
+    console.log(repos);
     let reposIndex = 0;
     setInterval(()=>{
         //LOOP THROUGH EVERY 3 SECONDS
