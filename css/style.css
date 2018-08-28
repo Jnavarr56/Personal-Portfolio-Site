@@ -128,7 +128,8 @@ canvas{display: block; vertical-align: bottom; }
 
   position: relative;
   top: 100px;
+  left: 5px;
 }
 .icon:hover {
-  left: 10px;
+  left: 12.5px;
 }
